@@ -33,6 +33,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: row; /* Cambio a fila para alinear horizontalmente */
       background-color: rgba(0, 0, 0, 0.5);
       border: 5px solid orange;
       margin-left: auto;
@@ -40,15 +41,29 @@
       width: 90%;
     }
 
+    .countdown-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 5px;
+    }
+
+    .legend {
+      font-size: 3vw;
+      color: white;
+      margin-bottom: 5px;
+    }
+
     .countdown {
       display: inline-block;
-      margin: 5px;
       width: 100px;
       font-size: 15vw;
       font-weight: bold;
       color: orange;
       background-color: rgba(0, 0, 0, 0.5);
       border: 5px solid #ffffff;
+      margin: 5px;
     }
 
     .flip-clock-divider {
@@ -57,6 +72,7 @@
       color: orange;
       font-size: 5vw;
       font-weight: bold;
+      margin: 5px;
     }
 
     .show-message {
@@ -89,13 +105,31 @@
   <h1>David Bisbal en vivo en el Movistar Arena con Carol, Vane, Roque y Jorge!!! 😍</h1>
 
   <div id="countdown-container">
-    <div class="countdown" id="days"></div>
+    <!-- Contenedor para Días -->
+    <div class="countdown-container">
+      <div class="legend">Días</div>
+      <div class="countdown" id="days"></div>
+    </div>
+
+    <!-- Contenedor para Horas -->
+    <div class="countdown-container">
+      <div class="legend">Horas</div>
+      <div class="countdown" id="hours"></div>
+    </div>
+
+    <!-- Contenedor para Minutos -->
+    <div class="countdown-container">
+      <div class="legend">Minutos</div>
+      <div class="countdown" id="minutes"></div>
+    </div>
+
+    <!-- Contenedor para Segundos -->
+    <div class="countdown-container">
+      <div class="legend">Segundos</div>
+      <div class="countdown" id="seconds"></div>
+    </div>
+
     <div class="flip-clock-divider">:</div>
-    <div class="countdown" id="hours"></div>
-    <div class="flip-clock-divider">:</div>
-    <div class="countdown" id="minutes"></div>
-    <div class="flip-clock-divider">:</div>
-    <div class="countdown" id="seconds"></div>
   </div>
 
   <div class="show-message" id="show-message">
@@ -107,7 +141,8 @@
   </div>
 
   <script>
-    var futureDate = new Date(2023, 11, 28, 20, 30, 0);
+    // Fecha del evento: Debe ponerse un mes menos porque los meses empiezan en 0
+    var futureDate = new Date(2023, 10, 28, 20, 30, 0);
 
     function updateCountdown() {
       var currentDate = new Date();
