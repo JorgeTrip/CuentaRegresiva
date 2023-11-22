@@ -33,7 +33,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: row; /* Cambio a fila para alinear horizontalmente */
       background-color: rgba(0, 0, 0, 0.5);
       border: 5px solid orange;
       margin-left: auto;
@@ -46,7 +45,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin: 5px;
+      width: 90%;
     }
 
     .legend {
@@ -57,8 +56,8 @@
 
     .countdown {
       display: inline-block;
-      width: 100px;
-      font-size: 15vw;
+      width: 15vw;
+      font-size: 12vw;
       font-weight: bold;
       color: orange;
       background-color: rgba(0, 0, 0, 0.5);
@@ -72,7 +71,6 @@
       color: orange;
       font-size: 5vw;
       font-weight: bold;
-      margin: 5px;
     }
 
     .show-message {
@@ -107,29 +105,36 @@
   <div id="countdown-container">
     <!-- Contenedor para Días -->
     <div class="countdown-container">
-      <div class="legend">Días</div>
       <div class="countdown" id="days"></div>
+      <div class="legend">Días</div>
     </div>
+
+    <!-- Contenedor para Separador Días -->
+    <div class="flip-clock-divider">:</div>
 
     <!-- Contenedor para Horas -->
     <div class="countdown-container">
-      <div class="legend">Horas</div>
       <div class="countdown" id="hours"></div>
+      <div class="legend">Horas</div>
     </div>
+
+    <!-- Contenedor para Separador Horas -->
+    <div class="flip-clock-divider">:</div>
 
     <!-- Contenedor para Minutos -->
     <div class="countdown-container">
-      <div class="legend">Minutos</div>
       <div class="countdown" id="minutes"></div>
+      <div class="legend">Minutos</div>
     </div>
+
+    <!-- Contenedor para Separador Minutos -->
+    <div class="flip-clock-divider">:</div>
 
     <!-- Contenedor para Segundos -->
     <div class="countdown-container">
-      <div class="legend">Segundos</div>
       <div class="countdown" id="seconds"></div>
+      <div class="legend">Segundos</div>
     </div>
-
-    <div class="flip-clock-divider">:</div>
   </div>
 
   <div class="show-message" id="show-message">
