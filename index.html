@@ -1,202 +1,133 @@
 <!DOCTYPE html>
-<html>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+<html lang="en">
 <head>
-<title>David Bisbal en vivo en el Movistar Arena</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Bisbal en vivo en el Movistar Arena</title>
+  <style>
+    body {
+      font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0);
+      background-image: url("imagen/fondoBisbal_oscuro.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
 
-<style>
+    h1 {
+      font-size: 5vw;
+      color: orange;
+      -webkit-text-stroke: 1px purple;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 5px solid #ffffff;
+      padding: 20px;
+      margin-top: 35vh;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+      animation: fadein 3s;
+    }  
 
-body {
-    /*Uso la letra Century Gothic*/
-    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0);
-  /*Agrego una imagen de fondo*/    
-    background-image: url("imagen/fondoBisbal_oscuro.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-  /*Me aseguro que el fondo no se recorte arriba o abajo, sólo en los laterales, de ser necesario*/
-    background-size: cover;
-    background-attachment: fixed;
+    #countdown-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 5px solid orange;
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+    }
 
-}
+    .countdown {
+      display: inline-block;
+      margin: 5px;
+      width: 100px;
+      font-size: 5vw;
+      font-weight: bold;
+      color: orange;
+      -webkit-text-stroke: 1px purple;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 5px solid #ffffff;
+      padding: 20px;
+    }
 
-h1 {
-  /*Le doy un tamaños de letra relativo al tamaño horizontal del dispositivo*/
-    font-size: 5vw;
-  color: orange;
-  /*Le pongo borde violeta a la letra*/
-    -webkit-text-stroke: 1px purple;
-  /*Le doy un color de fondo al título*/
-    background-color: rgba(0, 0, 0, 0.5);
-  /*Le pongo un borde al título*/
-    border: 5px solid #ffffff;
-  /*Le doy un poco de espacio alrededor del título*/
-    padding: 20px;
-  /*Bajo el título a una cuarta parte del tamaño vertical del dispositivo*/
-    margin-top: 35vh;
-    /*Centro el título horizontalmente*/
-    margin-left: auto;
-    margin-right: auto;
-    /*Le doy un ancho del 80%*/
-    width: 80%;
-    /*Le doy una animación al título al aparecer de fade*/
-    animation: fadein 3s;
-}  
+    .flip-clock-divider {
+      display: flex;
+      align-items: center; 
+      color: orange;
+      font-size: 5vw;
+      font-weight: bold;
+    }
 
-#countdown {
-  display: flex;  
-  justify-content: center;
-  align-items: center; 
-  height: 200px; 
-}
-
-.flip-clock-wrapper {
-  margin: 15px;
-}
-
-.flip-clock-wrapper .flip {
-  box-shadow: none;
-}
-
-.days, .hours, .minutes, .seconds {
-  display: inline-block;
-  margin: 5px;
-  width: 100px;
-  height: 90px;
-}
-
-.flip-clock-divider {
-  float: left;
-  display: flex;
-  align-items: center; 
-  color: black;
-  font-size: 48px;
-}
-
-.show-message {
-    font-size: 5vw;
-    color: orange;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 5px solid #ffffff;
-  /*Le pongo borde violeta a la letra*/
-    -webkit-text-stroke: 1px purple;
-  /*Le doy formato bold a la letra*/
-    font-weight: bold;
-  /*Le doy un poco de espacio alrededor del título*/
-    padding: 20px;
-    /*Centro el título horizontalmente*/
-    margin-left: auto;
-    margin-right: auto;
-    /*Le doy un ancho del 60%*/
-    width: 60%;
-    /*Le doy una animación de latido*/
-    animation: heartbeat 1s ease-in-out infinite both;
-}
-
-</style>
-
+    .show-message {
+      display: none; /* Inicialmente oculto */
+      font-size: 5vw;
+      color: orange;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 5px solid #ffffff;
+      -webkit-text-stroke: 1px purple;
+      font-weight: bold;
+      padding: 20px;
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 60%;
+      animation: heartbeat 1s ease-in-out infinite both;
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>David Bisbal en vivo en el Movistar Arena con Carol, Vane, Roque y Jorge!!! 😍</h1>
+  <h1>David Bisbal en vivo en el Movistar Arena con Carol, Vane, Roque y Jorge!!! 😍</h1>
 
-<div id="countdown">
-
-  <div class="days countdown">
-    <div class="flip-clock-wrapper">
-      <div class="flip"></div>
-      <div class="flip"></div>
-      <div class="flip"></div>
-      <div class="flip"></div>
-    </div>
-  </div>
-  
-  <div class="flip-clock-divider">:</div>
-  
-  <div class="hours countdown">
-    <div class="flip-clock-wrapper">
-      <div class="flip"></div>
-      <div class="flip"></div>
-      <div class="flip"></div>
-      <div class="flip"></div>
-    </div>
-  </div>
-   
-  <div class="flip-clock-divider">:</div>
-   
-  <div class="minutes countdown">
-    <div class="flip-clock-wrapper">
-      <div class="flip"></div>
-      <div class="flip"></div>
-      <div class="flip"></div>
-      <div class="flip"></div>
-    </div>
-  </div>
-   
-  <div class="flip-clock-divider">:</div>
-   
-  <div class="seconds countdown">
-    <div class="flip-clock-wrapper">
-      <div class="flip"></div>
-      <div class="flip"></div>
-      <div class="flip"></div>
-      <div class="flip"></div>
-    </div> 
+  <div id="countdown-container">
+    <div class="countdown" id="days"></div>
+    <div class="flip-clock-divider">:</div>
+    <div class="countdown" id="hours"></div>
+    <div class="flip-clock-divider">:</div>
+    <div class="countdown" id="minutes"></div>
+    <div class="flip-clock-divider">:</div>
+    <div class="countdown" id="seconds"></div>
   </div>
 
-</div>
+  <div class="show-message" id="show-message">
+    Disfrutemos del show!!!
+  </div>
 
-<div class="show-message">
-  Disfrutemos del show!!!  
-</div>
+  <script>
+    var futureDate = new Date(2023, 11, 28, 20, 30, 0);
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+    function updateCountdown() {
+      var currentDate = new Date();
+      var timeDifference = futureDate - currentDate;
 
-<script>
-  
-  var futureDate  = new Date(2023, 11, 28, 20, 30, 0);
-  
-  var days = new FlipClock($('.days'), {
-    clockFace: 'DailyCounter',
-    autoStart: true,
-    callbacks: {
-      stop: function() {
-        $('.show-message').fadeIn();
+      if (timeDifference <= 0) {
+        clearInterval(timeinterval);
+        document.getElementById("countdown-container").style.display = "none";
+        document.getElementById("show-message").style.display = "block";
+      } else {
+        var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = formatTime(days);
+        document.getElementById("hours").innerText = formatTime(hours);
+        document.getElementById("minutes").innerText = formatTime(minutes);
+        document.getElementById("seconds").innerText = formatTime(seconds);
       }
     }
-  });
 
-  var hours = new FlipClock($('.hours'), {
-    clockFace: 'TwentyFourHourClock'
-  });
-  
-  var minutes = new FlipClock($('.minutes'), {
-    clockFace: 'MinuteCounter'
-  });
-   
-  var seconds = new FlipClock($('.seconds'), {
-    clockFace: 'SecondCounter'
-  });
-
-  var clocks = [days ,hours, minutes, seconds];
-  
-  var timeinterval = setInterval(function(){
-    var currentDate = new Date(); 
-    if(currentDate >= futureDate){
-      clearInterval(timeinterval); 
-      clocks.forEach(function(clk){
-        clk.stop();
-      });
-    }else{
-     clocks.forEach(function(clk){
-        clk.setTime(futureDate - currentDate);
-      });
+    function formatTime(time) {
+      return time < 10 ? "0" + time : time;
     }
-  },1000);
-  
-</script>
+
+    updateCountdown(); // Para actualizar inmediatamente al cargar la página
+    var timeinterval = setInterval(updateCountdown, 1000);
+  </script>
 
 </body>
 </html>
